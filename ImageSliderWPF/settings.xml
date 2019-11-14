@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Playlist>
+  <RSS>
+    <RSSMaxItems>20</RSSMaxItems>
+    <RSSSpeed>2</RSSSpeed>
+    <RssUpdateInterval>10</RssUpdateInterval>
+    <RssPlainText>BBC</RssPlainText>
+    <RssText></RssText>
+    <RssHeading>BBC URDU: International </RssHeading>
+    <RssUrl><![CDATA[http://feeds.bbci.co.uk/urdu/rss.xml#sa-link_location=story-body&intlink_from_url=http%3A%2F%2Fwww.bbc.com%2Furdu%2Finstitutional%2F2009%2F03%2F090306_rss_feed&intlink_ts=1523693531553-sa]]></RssUrl>
+    <RssHeading1>National:</RssHeading1>
+    <RssUrl1><![CDATA[http://www.bbc.com/urdu/pakistan/index.xml#sa-link_location=story-body&intlink_from_url=http%3A%2F%2Fwww.bbc.com%2Furdu%2Finstitutional%2F2009%2F03%2F090306_rss_feed&intlink_ts=1523710913173-sa]]></RssUrl1>
+    <RSSBackgroundColor>#000000</RSSBackgroundColor>
+    <RssHeight>70</RssHeight>
+    <RSSFontSize>50</RSSFontSize>
+    <RSSFontColor>#000000</RSSFontColor>
+    <RSSFontWeight>Bold</RSSFontWeight>
+    <RSSFontStyle>Normal</RSSFontStyle>
+    <RSSFontFamily>Arial</RSSFontFamily>
+    <RSSDirection>West</RSSDirection>    
+  </RSS>
+  <Weather>
+    <OpenWeatherMapClient>c6b82ccf5c40a3479dff0d236e06bc53</OpenWeatherMapClient>
+    <BackgroundColor>#000000</BackgroundColor>
+    <HorizontalAlignment>Right</HorizontalAlignment>
+    <VerticalAlignment>Top</VerticalAlignment>
+    <Centigrade>true</Centigrade>
+    <ForeCastDays>5</ForeCastDays>
+    
+    <CityName>Rawalpindi,PK</CityName>
+    <CityID>1166993</CityID>
+    <CityFontSize>50</CityFontSize>
+    <CityFontWeight>Bold</CityFontWeight>
+    <CityFontStyle>Normal</CityFontStyle>
+    <CityFontFamily>Calibri</CityFontFamily>
+    <CityFontColor>#000000</CityFontColor>
+    
+    <DayFontSize>30</DayFontSize>
+    <DayFontWeight>Bold</DayFontWeight>
+    <DayFontStyle>Normal</DayFontStyle>
+    <DayFontFamily>Calibri</DayFontFamily>
+    <DayFontColor>#000000</DayFontColor>    
+    
+    <IconFontColor>#000000</IconFontColor>
+    <IconHeight>128</IconHeight>
+    <IconWidth>100</IconWidth>
+ </Weather>
+  <ImageSlider>
+    <ImageFolderPath>D:\Images</ImageFolderPath>
+    <MaxImagesInSlider>200</MaxImagesInSlider>
+    <IntervalTimer>7</IntervalTimer>
+    <FadeTimer>5</FadeTimer>
+    <ImageStretch>UniformToFill</ImageStretch>
+  </ImageSlider>
+</Playlist>
