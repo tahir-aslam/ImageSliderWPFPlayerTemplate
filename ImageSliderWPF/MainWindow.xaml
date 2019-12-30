@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageSliderWPF"
         xmlns:cust="clr-namespace:KoderHack.WPF.Controls;assembly=KoderHack.WPF.Controls"
-        xmlns:ticker="clr-namespace:INSM.Content.Template.Ticker;assembly=INSM.Content.Template.Ticker"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="1080"

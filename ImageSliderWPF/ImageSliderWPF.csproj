@@ -36,9 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="INSM.Content.Template.Ticker">
-      <HintPath>..\..\Ticker\Ticker\insm.content.template.ticker\bin\debug\INSM.Content.Template.Ticker.dll</HintPath>
-    </Reference>
     <Reference Include="OpenWeatherMap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenWeatherMap.1.1.0\lib\netstandard1.1\OpenWeatherMap.dll</HintPath>
       <Private>True</Private>
