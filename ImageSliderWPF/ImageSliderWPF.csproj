@@ -116,12 +116,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KoderHack.WPF.Controls\KoderHack.WPF.Controls.csproj">
-      <Project>{0880d44f-e0f3-4cf3-a811-08e6540d6678}</Project>
-      <Name>KoderHack.WPF.Controls</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Icons\blizzard-f.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -754,6 +748,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KoderHack.WPF.Controls\KoderHack.WPF.Controls.csproj">
+      <Project>{0880d44f-e0f3-4cf3-a811-08e6540d6678}</Project>
+      <Name>KoderHack.WPF.Controls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

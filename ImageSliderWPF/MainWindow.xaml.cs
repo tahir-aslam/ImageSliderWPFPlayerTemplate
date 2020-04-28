@@ -524,8 +524,11 @@ namespace ImageSliderWPF
                     //string m_Location = "Sargodha,PK";
                     //int m_LocationID = 1166000;
 
-                    string m_Location = "Pattoki, PK";
-                    int m_LocationID = 1168226;
+                    //string m_Location = "Pattoki, PK";
+                    //int m_LocationID = 1168226;
+
+                    string m_Location = "Islamabad, PK";
+                    int m_LocationID = 1176615;
 
                     bool m_Degree = true;
 
