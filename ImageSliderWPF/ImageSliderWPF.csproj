@@ -36,13 +36,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenWeatherMap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenWeatherMap.1.1.0\lib\netstandard1.1\OpenWeatherMap.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="KoderHack.WPF.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\KoderHack.WPF.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="Svg2Xaml, Version=0.3.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Svg2Xaml.0.3.0.5\lib\net40\Svg2Xaml.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="OpenWeatherMap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\4500BioMetriAPP\packages\OpenWeatherMap.1.1.0\lib\netstandard1.1\OpenWeatherMap.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg2Xaml, Version=0.3.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\4500BioMetriAPP\packages\Svg2Xaml.0.3.0.7\lib\net40\Svg2Xaml.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -744,17 +746,13 @@
   <ItemGroup>
     <Resource Include="Images\CameraPlaceHolder.jpeg" />
     <Resource Include="Images\fade.png" />
+    <Content Include="Lib\KoderHack.WPF.Controls.dll" />
     <Content Include="settings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KoderHack.WPF.Controls\KoderHack.WPF.Controls.csproj">
-      <Project>{0880d44f-e0f3-4cf3-a811-08e6540d6678}</Project>
-      <Name>KoderHack.WPF.Controls</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
