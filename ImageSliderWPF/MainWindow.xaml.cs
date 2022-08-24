@@ -80,7 +80,7 @@ namespace ImageSliderWPF
         void InitializeClocktimer()
         {
             m_ClockTimer = new DispatcherTimer();
-            m_ClockTimer.Interval = new TimeSpan(0,0,0);
+            m_ClockTimer.Interval = new TimeSpan(0, 0, 0);
             m_ClockTimer.Tick += M_ClockTimer_Tick;
             m_ClockTimer.Start();
         }
@@ -207,7 +207,11 @@ namespace ImageSliderWPF
         {
             try
             {
-                List<string> imagePathList = Directory.GetFiles(m_ImageFolderPath, "*.jpg*", SearchOption.AllDirectories).ToList();
+                List<string> imagePathList = Directory.GetFiles(m_ImageFolderPath, "*.jpg*", SearchOption.AllDirectories).ToList()
+                    .Union(Directory.GetFiles(m_ImageFolderPath, "*.jpg*", SearchOption.AllDirectories))
+                    .Union(Directory.GetFiles(m_ImageFolderPath, "*.jpeg*", SearchOption.AllDirectories))
+                    .Union(Directory.GetFiles(m_ImageFolderPath, "*.png*", SearchOption.AllDirectories))                    
+                    .ToList();
 
                 return imagePathList;
             }
@@ -475,7 +479,7 @@ namespace ImageSliderWPF
             {
                 time = item.PubDate.ToString("HH:MM", System.Globalization.CultureInfo.InvariantCulture).ToString();
                 //rss = rss + " - " + time  + " " + item.Title + " " + item.Description + " ";
-                feed = "      "+item.Title+" "+item.Description +" "+ LRM + time + LRM ;
+                feed = "      " + item.Title + " " + item.Description + " " + LRM + time + LRM;
 
                 rss = rss + feed;
             }
@@ -484,8 +488,8 @@ namespace ImageSliderWPF
             {
                 v_TickerGrid.Visibility = Visibility.Visible;
             }
-            
-            sliderText.Text = rss+" " +source;
+
+            sliderText.Text = rss + " " + source;
             Restart();
         }
 
@@ -521,27 +525,32 @@ namespace ImageSliderWPF
                     //string m_Location = "Rawalpindi,PK";
                     //int m_LocationID = 1166993;
 
-                    string m_Location = "Sargodha,PK";
-                    int m_LocationID = 1166000;
+                    //string m_Location = "Sargodha,PK";
+                    //int m_LocationID = 1166000;
 
                     //string m_Location = "Pattoki, PK";
                     //int m_LocationID = 1168226;
 
-                    //string m_Location = "Islamabad, PK";
-                    //int m_LocationID = 1176615;
+                    string m_Location = "Islamabad, PK";
+                    int m_LocationID = 1176615;
 
                     //string m_Location = "Kot Momin, PK";
-                    //int m_LocationID = 1182787;                    
+                    //int m_LocationID = 1182787;
+
+                    //string m_Location = "Samundri";
+                    //int m_LocationID = 1163968;
 
                     bool m_Degree = true;
-
 
                     CurrentWeatherResponse currentWeather = null;
 
                     if (!m_Degree)
-                        currentWeather = await client.CurrentWeather.GetByCityId(m_LocationID, MetricSystem.Imperial);
+                        currentWeather = await client.CurrentWeather.GetByName(m_Location, MetricSystem.Imperial);
+                    //currentWeather = await client.CurrentWeather.GetByCityId(m_LocationID, MetricSystem.Imperial);
+
                     else
                         currentWeather = await client.CurrentWeather.GetByCityId(m_LocationID, MetricSystem.Metric);
+                    //currentWeather = await client.CurrentWeather.GetByName(m_Location, MetricSystem.Metric);
 
                     //set city
                     v_City.Text = currentWeather.City.Name;
