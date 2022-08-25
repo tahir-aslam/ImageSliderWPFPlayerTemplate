@@ -34,7 +34,7 @@ namespace ImageSliderWPF
     public partial class MainWindow : Window
     {
         private int m_RSSMaxItems = 20;
-        private double m_RSSSpeed = 3;
+        private double m_RSSSpeed = 2;
         private int m_RssUpdateInterval = 5; //min
         private ObservableCollection<RSSItem> m_RSSItems = new ObservableCollection<RSSItem>();
         private List<SyndicationItem> m_OriginalRssItems = new List<SyndicationItem>();
@@ -581,7 +581,7 @@ namespace ImageSliderWPF
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Weather exception " + ex.Message);
+                MessageBox.Show("Weather exception " + ex.Message);
             }
 
 
@@ -684,78 +684,92 @@ namespace ImageSliderWPF
 
         private string GetIconPath(string icon)
         {
-            bool m_Filled = true;
-
-            string iconPath = "";
-
-            if (!m_Filled)
+            try
             {
-                switch (icon)
-                {
-                    case "01d": iconPath += "Icons/sun-1.svg"; break;
-                    case "02d": iconPath += "Icons/partly-cloudy-1.svg"; break;
-                    case "03d": iconPath += "Icons/mostly-cloudy-1.svg"; break;
-                    case "04d": iconPath += "Icons/mostly-cloudy-2.svg"; break;
-                    case "09d": iconPath += "Icons/rain-1.svg"; break;
-                    case "10d": iconPath += "Icons/rain-day.svg"; break;
-                    case "11d": iconPath += "Icons/severe-thunderstorm.svg"; break;
-                    case "13d": iconPath += "Icons/snow.svg"; break;
-                    case "50d": iconPath += "Icons/mist.svg"; break;
-                    case "01n": iconPath += "Icons/full-moon-2.svg"; break;
-                    case "02n": iconPath += "Icons/partly-cloudy-2.svg"; break;
-                    case "03n": iconPath += "Icons/mostly-cloudy-1.svg"; break;
-                    case "04n": iconPath += "Icons/mostly-cloudy-2.svg"; break;
-                    case "09n": iconPath += "Icons/rain-1.svg"; break;
-                    case "10n": iconPath += "Icons/rain-night.svg"; break;
-                    case "11n": iconPath += "Icons/severe-thunderstorm.svg"; break;
-                    case "13n": iconPath += "Icons/snow.svg"; break;
-                    case "50n": iconPath += "Icons/mist.svg"; break;
-                }
-            }
-            else
-            {
-                switch (icon)
-                {
-                    case "01d": iconPath += "Icons/sun-1-f.svg"; break;
-                    case "02d": iconPath += "Icons/partly-cloudy-1-f.svg"; break;
-                    case "03d": iconPath += "Icons/mostly-cloudy-1-f.svg"; break;
-                    case "04d": iconPath += "Icons/mostly-cloudy-2-f.svg"; break;
-                    case "09d": iconPath += "Icons/rain-1-f.svg"; break;
-                    case "10d": iconPath += "Icons/rain-day-f.svg"; break;
-                    case "11d": iconPath += "Icons/severe-thunderstorm-f.svg"; break;
-                    case "13d": iconPath += "Icons/snow-f.svg"; break;
-                    case "50d": iconPath += "Icons/mist.svg"; break;
-                    case "01n": iconPath += "Icons/full-moon-2-f.svg"; break;
-                    case "02n": iconPath += "Icons/partly-cloudy-2-f.svg"; break;
-                    case "03n": iconPath += "Icons/mostly-cloudy-1-f.svg"; break;
-                    case "04n": iconPath += "Icons/mostly-cloudy-2-f.svg"; break;
-                    case "09n": iconPath += "Icons/rain-1-f.svg"; break;
-                    case "10n": iconPath += "Icons/rain-night-f.svg"; break;
-                    case "11n": iconPath += "Icons/severe-thunderstorm-f.svg"; break;
-                    case "13n": iconPath += "Icons/snow-f.svg"; break;
-                    case "50n": iconPath += "Icons/mist.svg"; break;
-                }
-            }
+                bool m_Filled = true;
 
-            return iconPath;
+                string iconPath = "";
+
+                if (!m_Filled)
+                {
+                    switch (icon)
+                    {
+                        case "01d": iconPath += "Icons/sun-1.svg"; break;
+                        case "02d": iconPath += "Icons/partly-cloudy-1.svg"; break;
+                        case "03d": iconPath += "Icons/mostly-cloudy-1.svg"; break;
+                        case "04d": iconPath += "Icons/mostly-cloudy-2.svg"; break;
+                        case "09d": iconPath += "Icons/rain-1.svg"; break;
+                        case "10d": iconPath += "Icons/rain-day.svg"; break;
+                        case "11d": iconPath += "Icons/severe-thunderstorm.svg"; break;
+                        case "13d": iconPath += "Icons/snow.svg"; break;
+                        case "50d": iconPath += "Icons/mist.svg"; break;
+                        case "01n": iconPath += "Icons/full-moon-2.svg"; break;
+                        case "02n": iconPath += "Icons/partly-cloudy-2.svg"; break;
+                        case "03n": iconPath += "Icons/mostly-cloudy-1.svg"; break;
+                        case "04n": iconPath += "Icons/mostly-cloudy-2.svg"; break;
+                        case "09n": iconPath += "Icons/rain-1.svg"; break;
+                        case "10n": iconPath += "Icons/rain-night.svg"; break;
+                        case "11n": iconPath += "Icons/severe-thunderstorm.svg"; break;
+                        case "13n": iconPath += "Icons/snow.svg"; break;
+                        case "50n": iconPath += "Icons/mist.svg"; break;
+                    }
+                }
+                else
+                {
+                    switch (icon)
+                    {
+                        case "01d": iconPath += "Icons/sun-1-f.svg"; break;
+                        case "02d": iconPath += "Icons/partly-cloudy-1-f.svg"; break;
+                        case "03d": iconPath += "Icons/mostly-cloudy-1-f.svg"; break;
+                        case "04d": iconPath += "Icons/mostly-cloudy-2-f.svg"; break;
+                        case "09d": iconPath += "Icons/rain-1-f.svg"; break;
+                        case "10d": iconPath += "Icons/rain-day-f.svg"; break;
+                        case "11d": iconPath += "Icons/severe-thunderstorm-f.svg"; break;
+                        case "13d": iconPath += "Icons/snow-f.svg"; break;
+                        case "50d": iconPath += "Icons/mist.svg"; break;
+                        case "01n": iconPath += "Icons/full-moon-2-f.svg"; break;
+                        case "02n": iconPath += "Icons/partly-cloudy-2-f.svg"; break;
+                        case "03n": iconPath += "Icons/mostly-cloudy-1-f.svg"; break;
+                        case "04n": iconPath += "Icons/mostly-cloudy-2-f.svg"; break;
+                        case "09n": iconPath += "Icons/rain-1-f.svg"; break;
+                        case "10n": iconPath += "Icons/rain-night-f.svg"; break;
+                        case "11n": iconPath += "Icons/severe-thunderstorm-f.svg"; break;
+                        case "13n": iconPath += "Icons/snow-f.svg"; break;
+                        case "50n": iconPath += "Icons/mist.svg"; break;
+                    }
+                }
+
+                return iconPath;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
         }
         private DrawingImage LoadIcon(string iconPath)
         {
-            string m_IconFontColor = "#FFFFFF";
-            XmlDocument svgXml = new XmlDocument();
-
-            //svgXml.Load("Icons/blizzard-f.svg");
-            svgXml.Load(iconPath);
-
-            foreach (XmlElement pathElement in svgXml.GetElementsByTagName("path"))
-                pathElement.SetAttribute("fill", m_IconFontColor);
-
-            foreach (XmlElement pathElement in svgXml.GetElementsByTagName("circle"))
-                pathElement.SetAttribute("fill", m_IconFontColor);
-
-            using (XmlReader iconStream = XmlReader.Create(new System.IO.StringReader(svgXml.InnerXml)))
+            try
             {
-                return SvgReader.Load(iconStream);
+                string m_IconFontColor = "#FFFFFF";
+                XmlDocument svgXml = new XmlDocument();
+
+                //svgXml.Load("Icons/blizzard-f.svg");
+                svgXml.Load(iconPath);
+
+                foreach (XmlElement pathElement in svgXml.GetElementsByTagName("path"))
+                    pathElement.SetAttribute("fill", m_IconFontColor);
+
+                foreach (XmlElement pathElement in svgXml.GetElementsByTagName("circle"))
+                    pathElement.SetAttribute("fill", m_IconFontColor);
+
+                using (XmlReader iconStream = XmlReader.Create(new System.IO.StringReader(svgXml.InnerXml)))
+                {
+                    return SvgReader.Load(iconStream);
+                }
+            }
+            catch(Exception)
+            {
+                return null;
             }
         }
 

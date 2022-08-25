@@ -6,164 +6,172 @@
         xmlns:local="clr-namespace:ImageSliderWPF"
         xmlns:cust="clr-namespace:KoderHack.WPF.Controls;assembly=KoderHack.WPF.Controls"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="1080"
-        Width="1920"
+        Title="MainWindow"       
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         WindowStyle="None"
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
         Activated="Window_Activated"
-        Deactivated="Window_Deactivated">
+        Deactivated="Window_Deactivated"
+        Topmost="True">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Viewbox Grid.Row="0"
-                 Stretch="Fill">
-            <Grid x:Name="MainCanvas"
-                  Width="1920"
-                  Height="1080"
-                  Background="Transparent">
-                <Image x:Name="defaultImage"
-                       Stretch="UniformToFill"
-                       Width="1920"
-                       Height="1080"
-                       Source="Images/CameraPlaceHolder.jpeg"></Image>
-                <Image x:Name="myImage"
-                       Stretch="UniformToFill"
-                       Width="1920"
-                       Height="1080"></Image>
-                <Image x:Name="myImage2"
-                       Stretch="UniformToFill"
-                       Width="1920"
-                       Height="1080"></Image>               
-            </Grid>
-        </Viewbox>
-        <Image Name="v_ImageLogo"               
-               Margin="20"
-               Width="200"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"
-               Source="/Images/ciklum.jpg" />
-        <Image MaxWidth="100"
-               Margin="20"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Bottom"
-               Source="/Images/scenario2.jpeg" />
-        <Grid HorizontalAlignment="Right">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/fade.png"></ImageBrush>
-            </Grid.Background>
-            <StackPanel>
-                <StackPanel x:Name="v_ClockPanel"
-                            Orientation="Vertical"
-                            VerticalAlignment="Center"
-                            Margin="0,0,0,0">
-                    <TextBlock x:Name="v_Time"
-                               TextWrapping="Wrap"
-                               FontSize="70"
-                               Foreground="White"
-                               HorizontalAlignment="Center"
-                               FontFamily="Segoe UI Light"
-                               FontWeight="Bold" />
-                    <TextBlock x:Name="v_Date"
-                               TextWrapping="Wrap"
-                               FontSize="50"
-                               Foreground="WhiteSmoke"
-                               HorizontalAlignment="Center"
-                               FontFamily="Segoe UI Light" />
-                </StackPanel>
-                <StackPanel x:Name="v_WeatherPanel"
-                            Orientation="Vertical"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            Margin="20">
-                    <TextBlock Name="v_City"
-                               FontSize="60"
-                               FontFamily="Arial"
-                               FontWeight="Bold"
-                               Foreground="White"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               Margin="0,10,0,0" />
-                    <ListView x:Name="WeatherList"
-                              Margin="0 0 0 0"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                              BorderThickness="0"
-                              VerticalAlignment="top"
-                              Background="Transparent"
-                              Panel.ZIndex="10"
-                              Foreground="White">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Padding"
-                                        Value="0" />
-                                <Setter Property="Margin"
-                                        Value="0" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Vertical" />
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal"
-                                            Height="128"
-                                            Margin="0,30,0,0">
-                                    <StackPanel Orientation="Vertical"
-                                                Margin="0 0 0 0"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Left">
-                                        <TextBlock Text="{Binding Temperature}"
-                                                   TextWrapping="Wrap"
-                                                   Style="{Binding TemperatureStyle, Mode=OneWay}"
-                                                   FontSize="50"
-                                                   FontFamily="Calibri"
-                                                   Foreground="WhiteSmoke"></TextBlock>
-                                        <TextBlock Text="{Binding Day}"
-                                                   TextWrapping="Wrap"
-                                                   Style="{Binding TemperatureStyle, Mode=OneWay}"
-                                                   FontSize="30"
-                                                   FontStyle="Normal"
-                                                   FontFamily="Calibri"
-                                                   Foreground="WhiteSmoke"
-                                                   FontWeight="Bold"></TextBlock>
+        <Grid Grid.Row="0">           
+            <Viewbox Grid.Column="0"
+                     Stretch="Fill">
+                <Grid x:Name="MainCanvas"                     
+                      Background="Transparent">
+                    <Image x:Name="defaultImage"
+                           Stretch="Uniform"                        
+                           Source="Images/CameraPlaceHolder.jpeg"></Image>
+                    <Image x:Name="myImage"
+                           Stretch="UniformToFill"
+                          ></Image>
+                    <Image x:Name="myImage2"
+                           Stretch="UniformToFill"></Image>
+                </Grid>
+            </Viewbox>          
+            <Grid Grid.Column="1"
+                  HorizontalAlignment="Right">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Images/fade.png"></ImageBrush>
+                </Grid.Background>
+                <StackPanel>
+                    <StackPanel x:Name="v_ClockPanel"
+                                Orientation="Vertical"
+                                VerticalAlignment="Center"
+                                Margin="0,0,0,0">
+                        <TextBlock x:Name="v_Time"
+                                   TextWrapping="Wrap"
+                                   FontSize="50"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   FontFamily="Segoe UI Light"
+                                   FontWeight="Bold" />
+                        <TextBlock x:Name="v_Date"
+                                   TextWrapping="Wrap"
+                                   FontSize="40"
+                                   Foreground="WhiteSmoke"
+                                   HorizontalAlignment="Center"
+                                   FontFamily="Segoe UI Light" />
+                    </StackPanel>
+                    <StackPanel x:Name="v_WeatherPanel"
+                                Orientation="Vertical"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Margin="20">
+                        <TextBlock Name="v_City"
+                                   FontSize="40"
+                                   FontFamily="Arial"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Margin="0,10,0,0" />
+                        <ListView x:Name="WeatherList"
+                                  Margin="0 0 0 0"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                  BorderThickness="0"
+                                  VerticalAlignment="top"
+                                  Background="Transparent"
+                                  Panel.ZIndex="10"
+                                  Foreground="White">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Padding"
+                                            Value="0" />
+                                    <Setter Property="Margin"
+                                            Value="0" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                                Height="100"
+                                                Margin="0,30,0,0">
+                                        <StackPanel Orientation="Vertical"
+                                                    Margin="0 0 0 0"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Left">
+                                            <TextBlock Text="{Binding Temperature}"
+                                                       TextWrapping="Wrap"
+                                                       Style="{Binding TemperatureStyle, Mode=OneWay}"
+                                                       FontSize="50"
+                                                       FontFamily="Calibri"
+                                                       Foreground="WhiteSmoke"></TextBlock>
+                                            <TextBlock Text="{Binding Day}"
+                                                       TextWrapping="Wrap"
+                                                       Style="{Binding TemperatureStyle, Mode=OneWay}"
+                                                       FontSize="30"
+                                                       FontStyle="Normal"
+                                                       FontFamily="Calibri"
+                                                       Foreground="WhiteSmoke"
+                                                       FontWeight="Bold"></TextBlock>
+                                        </StackPanel>
+                                        <Border Height="128">
+                                            <Image Source="{Binding IconData}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Width="100" />
+                                        </Border>
                                     </StackPanel>
-                                    <Border Height="128">
-                                        <Image Source="{Binding IconData}"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
-                                               Width="100" />
-                                    </Border>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-        </Grid>
+            </Grid>
+            <Image Name="v_ImageLogo"
+                   Margin="20"    
+                   MaxHeight="100"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Source="/Images/ciklum.png" />
+            <Image MaxWidth="100"
+                   Margin="20"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Source="/Images/scenario2.jpeg"
+                   Visibility="Collapsed" />
+        </Grid>      
         <!--RSS-->
         <Grid Grid.Row="1"
               Visibility="Visible"
-              Name="v_TickerGrid">
-            <!--<ticker:TickerTemplate Height="150" VerticalAlignment="Bottom"/>-->
-            <cust:ContentTicker x:Name="contentTicker"
-                                HorizontalAlignment="Stretch"
+              Name="v_TickerGrid" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0"
+                       Text="BBC Urdu | "
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       Margin="10 0 0 5"
+                       Foreground="DarkGray"
+                       FontStyle="Italic"
+                       Visibility="Collapsed"/>
+            <cust:ContentTicker Grid.Column="1"
+                                x:Name="contentTicker"                                
                                 VerticalAlignment="Center"
                                 Margin="0"
-                                Height="150"
+                                Height="50"
                                 Rate="{Binding ElementName=speedSlider, Path=Value}"
                                 Direction="East">
                 <cust:ContentTicker.Content>
                     <TextBlock x:Name="sliderText"
                                Text="{Binding ElementName=sampleText, Path=Text}"
-                               FontSize="75"
+                               FontSize="40"
                                FontFamily="Arial"
                                FontWeight="Bold"
                                Foreground="Black"
@@ -178,8 +186,7 @@
                                       Offset="1" />
                     </LinearGradientBrush>
                 </cust:ContentTicker.Background>-->
-            </cust:ContentTicker>
-            <!--<TickerTemplate:TickerTemplate Height="80" VerticalAlignment="Bottom" />-->
+            </cust:ContentTicker>            
         </Grid>
     </Grid>
 </Window>
