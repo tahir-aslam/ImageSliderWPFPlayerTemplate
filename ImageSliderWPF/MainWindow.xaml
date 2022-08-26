@@ -97,8 +97,8 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal"
-                                                Height="100"
-                                                Margin="0,30,0,0">
+                                                Height="100" 
+                                                Margin="0 10 0 0">
                                         <StackPanel Orientation="Vertical"
                                                     Margin="0 0 0 0"
                                                     VerticalAlignment="Center"
@@ -118,11 +118,11 @@
                                                        Foreground="WhiteSmoke"
                                                        FontWeight="Bold"></TextBlock>
                                         </StackPanel>
-                                        <Border Height="128">
+                                        <Border Height="110">
                                             <Image Source="{Binding IconData}"
                                                    HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"
-                                                   Width="100" />
+                                                   Width="50" />
                                         </Border>
                                     </StackPanel>
                                 </DataTemplate>

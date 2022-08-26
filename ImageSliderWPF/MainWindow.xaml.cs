@@ -9,6 +9,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.ServiceModel.Syndication;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,13 +35,14 @@ namespace ImageSliderWPF
     public partial class MainWindow : Window
     {
         private int m_RSSMaxItems = 20;
-        private double m_RSSSpeed = 2;
+        private double m_RSSSpeed = 5;
         private int m_RssUpdateInterval = 5; //min
         private ObservableCollection<RSSItem> m_RSSItems = new ObservableCollection<RSSItem>();
         private List<SyndicationItem> m_OriginalRssItems = new List<SyndicationItem>();
         List<WeatherData> lstWeatherData = new List<WeatherData>();
         private string m_RssHeading = "BBC URDU: International ";
-        private string m_RssUrl = "http://feeds.bbci.co.uk/urdu/rss.xml#sa-link_location=story-body&intlink_from_url=http%3A%2F%2Fwww.bbc.com%2Furdu%2Finstitutional%2F2009%2F03%2F090306_rss_feed&intlink_ts=1523693531553-sa";
+        //private string m_RssUrl = "http://feeds.bbci.co.uk/urdu/rss.xml#sa-link_location=story-body&intlink_from_url=http%3A%2F%2Fwww.bbc.com%2Furdu%2Finstitutional%2F2009%2F03%2F090306_rss_feed&intlink_ts=1523693531553-sa";
+        private string m_RssUrl = "https://feeds.feedburner.com/geo/GiKR";
         DispatcherTimer rssUpdateTimer;
         private int m_UpdateWeatherInterval = 5;
 
@@ -63,7 +65,7 @@ namespace ImageSliderWPF
         public MainWindow()
         {
             InitializeComponent();
-            Task.Delay(500);
+            KeepAlive();           
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -122,7 +124,7 @@ namespace ImageSliderWPF
 
                 sliderText.Text = "";
                 contentTicker.Rate = m_RSSSpeed;
-                contentTicker.Direction = KoderHack.WPF.Controls.TickerDirection.East;
+                contentTicker.Direction = KoderHack.WPF.Controls.TickerDirection.West;
 
                 LoadRSS(m_RssHeading, m_RssUrl);
             }
@@ -210,7 +212,7 @@ namespace ImageSliderWPF
                 List<string> imagePathList = Directory.GetFiles(m_ImageFolderPath, "*.jpg*", SearchOption.AllDirectories).ToList()
                     .Union(Directory.GetFiles(m_ImageFolderPath, "*.jpg*", SearchOption.AllDirectories))
                     .Union(Directory.GetFiles(m_ImageFolderPath, "*.jpeg*", SearchOption.AllDirectories))
-                    .Union(Directory.GetFiles(m_ImageFolderPath, "*.png*", SearchOption.AllDirectories))                    
+                    .Union(Directory.GetFiles(m_ImageFolderPath, "*.png*", SearchOption.AllDirectories))
                     .ToList();
 
                 return imagePathList;
@@ -475,11 +477,13 @@ namespace ImageSliderWPF
             string feed = "";
             string LRM = ((char)0x200E).ToString();  // This is a LRM
 
-            foreach (var item in Items.Reverse())
+            foreach (var item in Items)
             {
-                time = item.PubDate.ToString("HH:MM", System.Globalization.CultureInfo.InvariantCulture).ToString();
+                time = item.PubDate.ToString("MMM d HH:MM", System.Globalization.CultureInfo.InvariantCulture).ToString();
                 //rss = rss + " - " + time  + " " + item.Title + " " + item.Description + " ";
-                feed = "      " + item.Title + " " + item.Description + " " + LRM + time + LRM;
+                rss = rss + "     " + time + "- " + item.Title + "  ";
+                //feed = "      " + item.Title + " " + item.Description + " " + LRM + time + LRM;
+                //feed = "      " + item.Title + " " + LRM + time + LRM;
 
                 rss = rss + feed;
             }
@@ -489,7 +493,8 @@ namespace ImageSliderWPF
                 v_TickerGrid.Visibility = Visibility.Visible;
             }
 
-            sliderText.Text = rss + " " + source;
+            //sliderText.Text = rss + " " + source;
+            sliderText.Text = source+"  "+ rss;
             Restart();
         }
 
@@ -767,7 +772,7 @@ namespace ImageSliderWPF
                     return SvgReader.Load(iconStream);
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return null;
             }
@@ -796,6 +801,21 @@ namespace ImageSliderWPF
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern uint SetThreadExecutionState(EXECUTION_STATE esFlags);
+        private void KeepAlive()
+        {
+            SetThreadExecutionState(EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_SYSTEM_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
+        }
+
+        [FlagsAttribute]
+        private enum EXECUTION_STATE : uint
+        {
+            ES_SYSTEM_REQUIRED = 0x00000001,
+            ES_DISPLAY_REQUIRED = 0x00000002,
+            ES_CONTINUOUS = 0x80000000,
         }
     }
 
