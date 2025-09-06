@@ -63,7 +63,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -86,10 +86,10 @@
       <HintPath>Lib\KoderHack.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="OpenWeatherMap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\4500BioMetriAPP\packages\OpenWeatherMap.1.1.0\lib\netstandard1.1\OpenWeatherMap.dll</HintPath>
+      <HintPath>..\packages\OpenWeatherMap.1.1.0\lib\netstandard1.1\OpenWeatherMap.dll</HintPath>
     </Reference>
     <Reference Include="Svg2Xaml, Version=0.3.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\4500BioMetriAPP\packages\Svg2Xaml.0.3.0.7\lib\net40\Svg2Xaml.dll</HintPath>
+      <HintPath>..\packages\Svg2Xaml.0.3.0.7\lib\net40\Svg2Xaml.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

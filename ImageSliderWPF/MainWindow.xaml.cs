@@ -41,8 +41,8 @@ namespace ImageSliderWPF
         private List<SyndicationItem> m_OriginalRssItems = new List<SyndicationItem>();
         List<WeatherData> lstWeatherData = new List<WeatherData>();
         private string m_RssHeading = "BBC URDU: International ";
-        //private string m_RssUrl = "http://feeds.bbci.co.uk/urdu/rss.xml#sa-link_location=story-body&intlink_from_url=http%3A%2F%2Fwww.bbc.com%2Furdu%2Finstitutional%2F2009%2F03%2F090306_rss_feed&intlink_ts=1523693531553-sa";
-        private string m_RssUrl = "https://feeds.feedburner.com/geo/GiKR";
+        private string m_RssUrl = "http://feeds.bbci.co.uk/urdu/rss.xml#sa-link_location=story-body&intlink_from_url=http%3A%2F%2Fwww.bbc.com%2Furdu%2Finstitutional%2F2009%2F03%2F090306_rss_feed&intlink_ts=1523693531553-sa";
+        //private string m_RssUrl = "https://feeds.feedburner.com/geo/GiKR";
         DispatcherTimer rssUpdateTimer;
         private int m_UpdateWeatherInterval = 5;
 
